@@ -37,8 +37,8 @@ class UsersController < ApplicationController
 
     Stripe::Checkout::Session.create({
       customer: customer.id,
-      success_url: 'http://localhost:3000/success',
-      cancel_url: 'http://localhost:3000/cancel',
+      success_url: episodes_url,
+      cancel_url: root_url,
       payment_method_types: ['card'],
       line_items: [{
         price: price.id,
