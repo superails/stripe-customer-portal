@@ -30,7 +30,7 @@ class WebhooksController < ApplicationController
       subscription = event.data.object
       @user = User.find_by(stripe_customer_id: subscription.customer)
       @user.update(
-        subscription_status: subscription.status,
+        subscription_status: 'active',
         plan: subscription.items.data[0].price.lookup_key,
       )
     end
