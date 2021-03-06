@@ -12,11 +12,7 @@
       Welcome back, <strong><%= current_user.email %> | <%= current_user.stripe_customer_id %></strong><br>
       Subscription status: <strong><%= current_user.subscription_status %></strong><br>
       Subscribed to: <strong><%= current_user.plan %></strong><br>
-
-      <form action="/customer_portal_sessions" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="submit" value="Manage billing">
-      </form>
+      <%= button_to "Manage Billing", customer_portal_sessions_path %>
       <%= yield %>
     </div>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
